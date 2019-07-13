@@ -18,8 +18,10 @@
     "@types/icon-gen": "2.0.0",
     "@types/node": "12.6.2",
     "husky": "3.0.0",
+    "lint-staged": "9.2.0",
     "prettier": "1.18.2",
     "rimraf": "2.6.3",
+    "ts-node": "8.3.0",
     "tslint": "5.18.0",
     "tslint-config-prettier": "1.18.0",
     "tslint-plugin-prettier": "2.0.1",
@@ -68,6 +70,7 @@
     "lint:other": "yarn prettier --list-different",
     "lint:ts": "tslint --project tsconfig.json",
     "prettier": "prettier \"*.{json,md}\"",
+    "start": "ts-node src/cli.ts",
     "test": "exit 0"
   },
   "version": "0.0.3"
