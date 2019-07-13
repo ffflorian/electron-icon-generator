@@ -1,16 +1,24 @@
 #!/usr/bin/env node
 
-import * as args from 'args';
-import {Flags, IconGenerator} from './';
+import * as commander from 'commander';
+import {IconGenerator} from './';
 
-args
-  .option('input', 'Input PNG file (recommended size: 1024x1024)', './icon.png')
-  .option('output', 'Folder to output new icons folder', './')
-  .option('silent', `Don't log anything beside errors`, false);
+const {bin, description, version} = require('../package.json');
 
-const flags = args.parse(process.argv) as Flags;
+commander
+  .description(description)
+  .name(Object.keys(bin)[0])
+  .version(version)
+  .option('-i, --input <file>', 'Input PNG file (recommended size: 1024x1024)', './icon.png')
+  .option('-o, --output <folder>', 'Folder to output new icons folder', './')
+  .option('-s, --silent', `Don't log anything beside errors`, false)
+  .parse(process.argv);
 
-new IconGenerator(flags)
+new IconGenerator({
+  input: commander.input,
+  output: commander.output,
+  silent: commander.silent,
+})
   .start()
   .then(() => process.exit())
   .catch(error => {

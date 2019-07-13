@@ -4,7 +4,7 @@
     "electron-icon-generator": "dist/index.js"
   },
   "dependencies": {
-    "args": "5.0.1",
+    "commander": "2.20.0",
     "fs-extra": "8.1.0",
     "icon-gen": "2.0.0",
     "jimp": "0.6.4"
@@ -13,7 +13,6 @@
   "devDependencies": {
     "@ffflorian/prettier-config": "0.0.5",
     "@ffflorian/tslint-config": "0.4.0",
-    "@types/args": "3.0.0",
     "@types/fs-extra": "8.0.0",
     "@types/icon-gen": "2.0.0",
     "@types/node": "12.6.2",

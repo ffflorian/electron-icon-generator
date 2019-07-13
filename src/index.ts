@@ -7,25 +7,25 @@ import * as path from 'path';
 
 const pngSizes = [16, 24, 32, 48, 64, 128, 256, 512, 1024];
 
-export interface Flags {
+export interface Options {
   input: string;
   output: string;
   silent?: boolean;
 }
 
 export class IconGenerator {
-  private readonly input: string;
-  private readonly output: string;
-  private readonly oSub: string;
+  private readonly iconsDir: string;
   private readonly PNGoutputDir: string;
+  private readonly options: Options;
 
-  constructor(private readonly flags: Flags) {
-    this.logConsole(flags);
+  constructor(options: Options) {
+    this.options = options;
+    this.logConsole(options);
 
-    this.input = path.resolve(process.cwd(), flags.input);
-    this.output = path.resolve(process.cwd(), flags.output);
-    this.oSub = path.join(this.output, 'icons');
-    this.PNGoutputDir = path.join(this.oSub, 'png');
+    this.options.input = path.resolve(this.options.input);
+    this.options.output = path.resolve(this.options.output);
+    this.iconsDir = path.join(this.options.output, 'icons');
+    this.PNGoutputDir = path.join(this.iconsDir, 'png');
   }
 
   public async start(): Promise<void> {
@@ -33,7 +33,7 @@ export class IconGenerator {
   }
 
   private logConsole(...messages: any[]): void {
-    if (!this.flags.silent) {
+    if (!this.options.silent) {
       console.log(...messages);
     }
   }
@@ -46,8 +46,8 @@ export class IconGenerator {
     if (position < pngSizes.length - 1) {
       await this.createPNGs(position + 1);
     } else {
-      const macIconsDir = path.join(this.oSub, 'mac');
-      const winIconsDir = path.join(this.oSub, 'win');
+      const macIconsDir = path.join(this.iconsDir, 'mac');
+      const winIconsDir = path.join(this.iconsDir, 'win');
 
       await fs.ensureDir(macIconsDir);
 
@@ -56,7 +56,7 @@ export class IconGenerator {
           name: 'icon',
           sizes: pngSizes,
         },
-        report: !this.flags.silent,
+        report: !this.options.silent,
       });
 
       await fs.ensureDir(winIconsDir);
@@ -66,7 +66,7 @@ export class IconGenerator {
           name: 'icon',
           sizes: pngSizes,
         },
-        report: !this.flags.silent,
+        report: !this.options.silent,
       });
 
       this.logConsole('Renaming PNGs to Electron Format');
@@ -93,11 +93,11 @@ export class IconGenerator {
   private async createPNG(size: number): Promise<string> {
     const fileName = `${size.toString()}.png`;
 
-    await fs.ensureDir(this.output);
-    await fs.ensureDir(this.oSub);
+    await fs.ensureDir(this.options.output);
+    await fs.ensureDir(this.iconsDir);
     await fs.ensureDir(this.PNGoutputDir);
 
-    const image = await Jimp.read(this.input);
+    const image = await Jimp.read(this.options.input);
     const resizeFile = path.join(this.PNGoutputDir, fileName);
 
     await new Promise((resolve, reject) =>

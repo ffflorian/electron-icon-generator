@@ -13,24 +13,22 @@ npm install -g @ffflorian/electron-icon-generator
 ## Usage
 
 ```
-electron-icon-generator --input=/absolute/path/file.png --output=./relative/path/to/folder
+electron-icon-generator --input /file/to/image.png --output /file/to/folder
 ```
 
 #### Arguments
 
 ```
-Usage: electron-icon-generator [options] [command]
+Usage: electron-icon-generator [options]
 
-Commands:
-help     Display help
-version  Display version
+An icon generator to generate all the icon files needed for electron packaging
 
 Options:
--h, --help            Output usage information
--i, --input [value]   Input PNG file (recommended size: 1024x1024) (defaults to "./icon.png")
--o, --output [value]  Folder to output new icons folder (defaults to "./")
--s, --silent          Don't log anything beside errors (disabled by default)
--v, --version         Output the version number
+  -V, --version          output the version number
+  -i, --input <file>     Input PNG file (recommended size: 1024x1024) (default: "./icon.png")
+  -o, --output <folder>  Folder to output new icons folder (default: "./")
+  -s, --silent           Don't log anything beside errors
+  -h, --help             output usage information
 ```
 
 #### Recommendations
