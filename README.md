@@ -16,7 +16,7 @@ npm install -g @ffflorian/electron-icon-generator
 electron-icon-generator --input /path/to/image.png --output /path/to/folder
 ```
 
-#### Arguments
+## Arguments
 
 ```
 Usage: electron-icon-generator [options]
@@ -31,11 +31,11 @@ Options:
   -h, --help             output usage information
 ```
 
-#### Recommendations
+## Recommendations
 
 Input file should be 1024\*1024px or larger. Make sure it is a 1:1 aspect ratio on width to height.
 
-#### Output structure
+## Output structure
 
 ```
 [output dir]
