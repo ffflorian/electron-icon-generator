@@ -27,6 +27,9 @@
     "tslint-plugin-prettier": "2.0.1",
     "typescript": "3.5.3"
   },
+  "files": [
+    "dist"
+  ],
   "homepage": "https://github.com/ffflorian/electron-icon-generator",
   "husky": {
     "hooks": {
