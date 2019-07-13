@@ -1,0 +1,74 @@
+{
+  "author": "Florian Keller <github@floriankeller.de>",
+  "bin": {
+    "electron-icon-generator": "dist/index.js"
+  },
+  "dependencies": {
+    "args": "5.0.1",
+    "fs-extra": "8.1.0",
+    "icon-gen": "2.0.0",
+    "jimp": "0.6.4"
+  },
+  "description": "An icon generator to generate all the icon files needed for electron packaging",
+  "devDependencies": {
+    "@ffflorian/prettier-config": "0.0.5",
+    "@ffflorian/tslint-config": "0.4.0",
+    "@types/args": "3.0.0",
+    "@types/fs-extra": "8.0.0",
+    "@types/icon-gen": "2.0.0",
+    "@types/node": "12.6.2",
+    "husky": "3.0.0",
+    "prettier": "1.18.2",
+    "rimraf": "2.6.3",
+    "tslint": "5.18.0",
+    "tslint-config-prettier": "1.18.0",
+    "tslint-plugin-prettier": "2.0.1",
+    "typescript": "3.5.3"
+  },
+  "homepage": "https://github.com/ffflorian/electron-icon-generator",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "keywords": [
+    "electron",
+    "icon",
+    "icns",
+    "png",
+    "ico"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "spec/**/*.ts": [
+      "tslint --project tsconfig.jasmine.json --fix",
+      "git add"
+    ],
+    "src/**/*.ts": [
+      "tslint --project tsconfig.json --fix",
+      "git add"
+    ]
+  },
+  "main": "dist/index.js",
+  "name": "@ffflorian/electron-icon-generator",
+  "prettier": "@ffflorian/prettier-config",
+  "repository": "https://github.com/ffflorian/electron-icon-generator.git",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf dist",
+    "dist": "yarn clean && yarn build",
+    "fix": "yarn fix:other && yarn fix:ts",
+    "fix:other": "yarn prettier --write",
+    "fix:ts": "yarn lint:ts --fix --fix",
+    "lint": "yarn lint:ts && yarn lint:other",
+    "lint:other": "yarn prettier --list-different",
+    "lint:ts": "tslint --project tsconfig.json",
+    "prettier": "prettier \"*.{json,md}\"",
+    "test": "exit 0"
+  },
+  "version": "0.0.3"
+}
