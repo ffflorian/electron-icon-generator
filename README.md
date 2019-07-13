@@ -13,7 +13,7 @@ npm install -g @ffflorian/electron-icon-generator
 ## Usage
 
 ```
-electron-icon-generator --input /file/to/image.png --output /file/to/folder
+electron-icon-generator --input /path/to/image.png --output /path/to/folder
 ```
 
 #### Arguments
