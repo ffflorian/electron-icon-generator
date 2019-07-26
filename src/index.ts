@@ -15,8 +15,8 @@ export interface Options {
 
 export class IconGenerator {
   private readonly iconsDir: string;
-  private readonly PNGoutputDir: string;
   private readonly options: Options;
+  private readonly PNGoutputDir: string;
 
   constructor(options: Options) {
     this.options = options;
@@ -32,10 +32,22 @@ export class IconGenerator {
     await this.createPNGs(0);
   }
 
-  private logConsole(...messages: any[]): void {
-    if (!this.options.silent) {
-      console.log(...messages);
-    }
+  private async createPNG(size: number): Promise<string> {
+    const fileName = `${size.toString()}.png`;
+
+    await fs.ensureDir(this.options.output);
+    await fs.ensureDir(this.iconsDir);
+    await fs.ensureDir(this.PNGoutputDir);
+
+    const image = await Jimp.read(this.options.input);
+    const resizeFile = path.join(this.PNGoutputDir, fileName);
+
+    await new Promise((resolve, reject) =>
+      image.resize(size, size, (error, result) => (error ? reject(error) : resolve(result)))
+    );
+    await image.writeAsync(resizeFile);
+
+    return `Created "${resizeFile}"`;
   }
 
   private async createPNGs(position: number): Promise<void> {
@@ -74,6 +86,12 @@ export class IconGenerator {
     }
   }
 
+  private logConsole(...messages: any[]): void {
+    if (!this.options.silent) {
+      console.log(...messages);
+    }
+  }
+
   private async renamePNGs(position: number): Promise<void> {
     const startName = `${pngSizes[position]}.png`;
     const endName = `${pngSizes[position]}x${pngSizes[position]}.png`;
@@ -88,23 +106,5 @@ export class IconGenerator {
     } else {
       this.logConsole('\nAll done');
     }
-  }
-
-  private async createPNG(size: number): Promise<string> {
-    const fileName = `${size.toString()}.png`;
-
-    await fs.ensureDir(this.options.output);
-    await fs.ensureDir(this.iconsDir);
-    await fs.ensureDir(this.PNGoutputDir);
-
-    const image = await Jimp.read(this.options.input);
-    const resizeFile = path.join(this.PNGoutputDir, fileName);
-
-    await new Promise((resolve, reject) =>
-      image.resize(size, size, (error, result) => (error ? reject(error) : resolve(result)))
-    );
-    await image.writeAsync(resizeFile);
-
-    return `Created "${resizeFile}"`;
   }
 }
