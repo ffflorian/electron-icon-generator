@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import * as fs from 'fs-extra';
-import * as icongen from 'icon-gen';
-import * as Jimp from 'jimp';
+import icongen from 'icon-gen';
+import Jimp from 'jimp';
 import * as path from 'path';
 
 const pngSizes = [16, 24, 32, 48, 64, 128, 256, 512, 1024];
