@@ -1,9 +1,18 @@
 #!/usr/bin/env node
 
 import commander from 'commander';
+import * as fs from 'fs';
+import * as path from 'path';
+
 import {IconGenerator} from './';
 
-const {bin, description, version} = require('../package.json');
+const defaultPackageJsonPath = path.join(__dirname, 'package.json');
+const packageJsonPath = fs.existsSync(defaultPackageJsonPath)
+  ? defaultPackageJsonPath
+  : path.join(__dirname, '../package.json');
+
+const packageJson = fs.readFileSync(packageJsonPath, 'utf-8');
+const {bin, description, version} = JSON.parse(packageJson);
 
 commander
   .description(description)
