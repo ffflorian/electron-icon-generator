@@ -1,9 +1,10 @@
-name: Build, lint and test
+name: Pull request
 
-on: [push, pull_request]
+on: pull_request
 
 jobs:
   build_lint_test:
+    name: Build, lint and test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -16,8 +17,10 @@ jobs:
         run: |
           yarn
           yarn lint
-          yarn dist
           yarn test
+          yarn dist
+        env:
+          NODE_ENV: development
         if: |
           contains(github.event.commits[0].message, '[skip ci]') == false &&
           contains(github.event.commits[0].message, '[ci skip]') == false
