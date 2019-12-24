@@ -18,7 +18,7 @@
     "@semantic-release/git": "7.0.18",
     "@types/fs-extra": "8.0.1",
     "@types/icon-gen": "2.0.0",
-    "@types/node": "12.12.21",
+    "@types/node": "13.1.0",
     "husky": "3.1.0",
     "lint-staged": "9.5.0",
     "prettier": "1.19.1",
