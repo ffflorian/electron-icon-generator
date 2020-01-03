@@ -58,6 +58,3 @@ jobs:
           npm publish --registry=https://npm.pkg.github.com || true
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        if: |
-          contains(github.event.commits[0].message, '[skip ci]') == false &&
-          contains(github.event.commits[0].message, '[ci skip]') == false
