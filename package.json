@@ -19,7 +19,7 @@
     "@types/fs-extra": "8.0.1",
     "@types/icon-gen": "2.0.0",
     "@types/node": "12.12.24",
-    "husky": "4.0.0",
+    "husky": "4.0.3",
     "lint-staged": "9.5.0",
     "prettier": "1.19.1",
     "publish-flat": "1.3.4",
