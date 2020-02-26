@@ -20,7 +20,7 @@
     "@types/icon-gen": "2.0.0",
     "@types/node": "12.12.28",
     "husky": "4.2.3",
-    "lint-staged": "10.0.7",
+    "lint-staged": "10.0.8",
     "prettier": "1.19.1",
     "publish-flat": "1.4.0",
     "rimraf": "3.0.2",
