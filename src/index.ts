@@ -5,6 +5,7 @@ import icongen from 'icon-gen';
 import Jimp from 'jimp';
 import * as path from 'path';
 
+// eslint-disable-next-line no-magic-numbers
 const pngSizes = [16, 24, 32, 48, 64, 128, 256, 512, 1024];
 
 export interface Options {
@@ -88,7 +89,7 @@ export class IconGenerator {
 
   private logConsole(...messages: any[]): void {
     if (!this.options.silent) {
-      console.log(...messages);
+      console.info(...messages);
     }
   }
 
