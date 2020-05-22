@@ -18,7 +18,7 @@
     "@semantic-release/git": "9.0.0",
     "@types/fs-extra": "9.0.1",
     "@types/icon-gen": "2.0.0",
-    "@types/node": "12.12.41",
+    "@types/node": "12.12.42",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
     "babel-eslint": "10.1.0",
