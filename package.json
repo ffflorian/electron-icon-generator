@@ -12,7 +12,7 @@
   "description": "An icon generator to generate all the icon files needed for electron packaging",
   "devDependencies": {
     "@ffflorian/eslint-config": "0.6.2",
-    "@ffflorian/prettier-config": "0.1.1",
+    "@ffflorian/prettier-config": "0.1.2",
     "@ffflorian/semantic-release-config": "0.4.0",
     "@semantic-release/changelog": "5.0.1",
     "@semantic-release/git": "9.0.0",
