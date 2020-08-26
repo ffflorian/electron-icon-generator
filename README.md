@@ -1,4 +1,4 @@
-# electron-icon-generator [![Build Status](https://github.com/ffflorian/electron-icon-generator/workflows/Build/badge.svg)](https://github.com/ffflorian/electron-icon-generator/actions/) [![npm version](https://img.shields.io/npm/v/@ffflorian/electron-icon-generator.svg?style=flat)](https://www.npmjs.com/package/@ffflorian/electron-icon-generator) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=ffflorian/electron-icon-generator)](https://dependabot.com)
+# electron-icon-generator [![Build Status](https://github.com/ffflorian/electron-icon-generator/workflows/Build/badge.svg)](https://github.com/ffflorian/electron-icon-generator/actions/) [![npm version](https://img.shields.io/npm/v/@ffflorian/electron-icon-generator.svg?style=flat)](https://www.npmjs.com/package/@ffflorian/electron-icon-generator)
 
 Based on https://github.com/jaretburkett/electron-icon-maker.
 
