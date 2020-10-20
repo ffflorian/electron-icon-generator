@@ -63,8 +63,7 @@
   "license": "GPL-3.0",
   "lint-staged": {
     "*.{json,md}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "src/**/*.ts": [
       "eslint --fix"
