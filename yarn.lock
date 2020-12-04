@@ -655,11 +655,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/icon-gen@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.npmjs.org/@types/icon-gen/-/icon-gen-2.0.0.tgz#ee04b3a776ce2435d6157055c8be5364c96c1977"
-  integrity sha512-LmqFpGI1PSw7BYnjQCHYHg+9O+eJpRKzZSMhxPF9MgLeimnRrEk2JDd7xnp7VHDQaU8P8uLwoZY5n3TdRR65qA==
-
 "@types/json-schema@^7.0.3":
   version "7.0.4"
   resolved "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.4.tgz#38fd73ddfd9b55abb1e1b2ed578cb55bd7b7d339"
