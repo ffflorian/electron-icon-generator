@@ -23,10 +23,12 @@ commander
   .option('-s, --silent', `Don't log anything beside errors`, false)
   .parse(process.argv);
 
+const commanderOptions = commander.opts();
+
 new IconGenerator({
-  input: commander.input,
-  output: commander.output,
-  silent: commander.silent,
+  input: commanderOptions.input,
+  output: commanderOptions.output,
+  silent: commanderOptions.silent,
 })
   .start()
   .then(() => process.exit())
