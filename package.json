@@ -47,11 +47,6 @@
     "dist"
   ],
   "homepage": "https://github.com/ffflorian/electron-icon-generator",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "keywords": [
     "electron",
     "icon",
