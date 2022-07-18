@@ -4,7 +4,7 @@
     "electron-icon-generator": "dist/index.js"
   },
   "dependencies": {
-    "commander": "9.3.0",
+    "commander": "9.4.0",
     "fs-extra": "10.1.0",
     "icon-gen": "3.0.1",
     "jimp": "0.16.1"
